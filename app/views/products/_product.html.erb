@@ -1,0 +1,44 @@
+<div id="<%= dom_id product %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Code:</strong>
+    <%= product.code %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Brand:</strong>
+    <%= product.brand %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Manufacturer:</strong>
+    <%= product.manufacturer %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= product.description %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Subcategory:</strong>
+    <%= product.subcategory_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Datasheet:</strong>
+    <% product.datasheet.each do |datasheet| %>
+      <div><%= link_to datasheet.filename, datasheet %></div>
+    <% end %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this product", product, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this product', edit_product_path(product), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
