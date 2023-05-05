@@ -1,0 +1,21 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: mercado_development
+  
+test:
+  <<: *default
+  database: mercado_test
+  
+production:
+  <<: *default
+  database: mercado_production
+  username: mercado
+  password: <%= ENV["MERCADO_DATABASE_PASSWORD"] %>
