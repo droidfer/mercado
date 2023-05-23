@@ -1,44 +1,45 @@
 <div id="<%= dom_id product %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+  <p class="my-5 font-bold text-2xl text-center">
     <%= product.name %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Code:</strong>
+  <div class="mt-3 flex">
+    <strong class="block font-bold mb-1 mr-2">Code: </strong>
     <%= product.code %>
-  </p>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Brand:</strong>
+  <div class="flex">
+    <strong class="block font-bold mb-1 mr-2">Brand:</strong>
     <%= product.brand %>
-  </p>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Manufacturer:</strong>
+  <p class="flex">
+    <strong class="block font-bold mb-1 mr-2">Manufacturer:</strong>
     <%= product.manufacturer %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= product.description %>
+  <p class="flex text-justify">
+    <strong class="block font-bold mb-1 mr-2">Description:</strong>
+
+      <%= product.description %>      
+
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Subcategory:</strong>
-    <%= product.subcategory_id %>
+  <p class="flex mt-2">
+    <strong class="block font-bold mb-1 mr-2">Subcategory:</strong>
+    <%= product.subcategory&.name %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Datasheet:</strong>
-    <% product.datasheet.each do |datasheet| %>
-      <div><%= link_to datasheet.filename, datasheet %></div>
+  <p class="my-5 flex">
+    <strong class="block font-bold mb-1 text-gray-400 underline">Datasheet Link</strong>
+    <% product.datasheet.each_with_index do |datasheet, index| %>
+      <div><%= link_to "#{product.name}_(#{index})", datasheet %></div>
     <% end %>
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this product", product, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this product', edit_product_path(product), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Ver", product, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Editar', edit_product_path(product), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
 </div>

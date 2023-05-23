@@ -5,10 +5,10 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Sub-Categories</h1>
-    <%= link_to 'New Sub-Category', new_subcategory_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to 'Nuevo', new_subcategory_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="subcategories" class="min-w-full">
+  <div id="subcategories" class="mt-10 min-w-full">
     <%= render @subcategories %>
   </div>
 </div>

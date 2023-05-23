@@ -4,8 +4,8 @@
   
     <% if action_name != "show" %>
       <div class="flex">
-      <%= link_to "Show", subcategory, class: "rounded-lg py-1 px-2 bg-gray-100 inline-block font-medium" %>
-      <%= link_to 'Edit', edit_subcategory_path(subcategory), class: "rounded-lg py-1 ml-2 px-2 bg-gray-100 inline-block font-medium" %>
+      <%= link_to "Ver", subcategory, class: "rounded-lg py-1 px-2 bg-gray-50 inline-block" %>
+      <%= link_to 'Editar', edit_subcategory_path(subcategory), class: "rounded-lg py-1 ml-2 px-2 bg-red-50 inline-block" %>
       </div>
     <% end %>
     

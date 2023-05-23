@@ -5,11 +5,11 @@
     <% end %>
 
     <%= render @product %>
-
-    <%= link_to 'Edit this product', edit_product_path(@product), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this product', product_path(@product), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+  
+    <div class="flex mt-5">
+      <%= button_to 'Editar', edit_product_path(@product), method: :get, class: "ml-2 rounded-lg py-1 px-2 bg-green-50 inline-block font-medium" %>
+      <%= button_to 'Borrar', product_path(@product), method: :delete, class: "ml-2 rounded-lg py-1 px-2 bg-red-50 inline-block font-medium" %>
+      <%= button_to 'Volver', products_path, method: :get, class: "ml-2 rounded-lg py-1 px-2 bg-gray-100 inline-block font-medium" %>
     </div>
-    <%= link_to 'Back to products', products_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>
