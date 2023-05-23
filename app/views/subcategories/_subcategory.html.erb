@@ -1,11 +1,11 @@
 <div id="<%= dom_id subcategory %>">
   <div class="flex justify-between items-center mt-2">
-    <%= subcategory.name %> / <%= subcategory.category.name %>
+    <%= link_to "#{subcategory.name} / #{subcategory.category.name} ", subcategory_path(subcategory) %>
   
     <% if action_name != "show" %>
       <div class="flex">
-      <%= link_to "Show", subcategory, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      <%= link_to 'Edit', edit_subcategory_path(subcategory), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to "Show", subcategory, class: "rounded-lg py-1 px-2 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Edit', edit_subcategory_path(subcategory), class: "rounded-lg py-1 ml-2 px-2 bg-gray-100 inline-block font-medium" %>
       </div>
     <% end %>
     
