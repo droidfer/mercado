@@ -7,8 +7,28 @@
     <h1 class="font-bold text-4xl">Offers</h1>
     <%= link_to 'New offer', new_offer_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
-
-  <div id="offers" class="min-w-full">
-    <%= render @offers %>
+  
+  
+  <div id="offers" class="mt-10 min-w-full items-center">
+    <% @offers.each do |offer| %>
+      
+      <div class="mt-2 flex justify-between">
+        <div class="flex">
+          <%= offer.presented_at %>
+          <span class="ml-2 text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-orange-600 bg-orange-200 uppercase last:mr-0 mr-1">
+		        <%= offer.tender.name %>
+		      </span>
+          <span class="ml-2 text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-zinc-600 bg-zinc-200 uppercase last:mr-0 mr-1">
+		        <%= offer.status %>
+		      </span>
+        </div>
+        <div class="flex">
+          <%= link_to "Ver", offer, class: "text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-2 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" %>
+        </div>
+      </div>
+      
+      <hr class="mt-2">
+    <% end %>
   </div>
+  
 </div>

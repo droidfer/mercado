@@ -5,11 +5,35 @@
     <% end %>
 
     <%= render @tender %>
-
+  
+    <div id="offers" class="mt-10 min-w-full items-center">
+      <% @tender.offers.active.each do |offer| %>
+      
+        <div class="mt-2 flex justify-between">
+          <div class="flex">
+            <%= offer.presented_at %>
+            
+            <span class="ml-2 text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-zinc-600 bg-zinc-200 uppercase last:mr-0 mr-1">
+		        <%= offer.status %>
+		      </span>
+          </div>
+          <div class="flex">
+            <%= link_to "Ver", offer, class: "text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-2 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" %>
+          </div>
+        </div>
+      
+        <hr class="mt-2">
+      <% end %>
+    </div>
+  
+    
     <%= link_to 'Edit this tender', edit_tender_path(@tender), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
       <%= button_to 'Destroy this tender', tender_path(@tender), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
     <%= link_to 'Back to tenders', tenders_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
+  
+
+  
 </div>
