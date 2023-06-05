@@ -24,7 +24,6 @@
   <div class="my-5">
     <%= form.label :status %>
     <%= form.select :status, options_for_select(Tender.statuses.map { |key, value| [key.titleize, Tender.statuses.key(value)]}, @tender.status) , class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-        
   </div>
 
   <div class="inline">

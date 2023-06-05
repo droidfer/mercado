@@ -1,0 +1,34 @@
+<div id="<%= dom_id offer %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Tender:</strong>
+    <%= "RFQ #{offer.tender&.rfq_id}" %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Status:</strong>
+    <%= offer.status %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Price:</strong>
+    <%= offer.price %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Presented at:</strong>
+    <%= offer.presented_at %>
+  </p>
+  
+  <p class="my-5 flex">
+    <strong class="block font-bold mb-1 text-gray-400 underline">Proposal Link</strong>
+    <% offer.proposal.each_with_index do |proposal, index| %>
+      <div><%= link_to "Proposal_(#{index})", proposal %></div>
+    <% end %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this offer", offer, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this offer', edit_offer_path(offer), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
