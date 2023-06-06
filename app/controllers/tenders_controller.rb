@@ -2,7 +2,13 @@ class TendersController < ApplicationController
   before_action :set_tender, only: %i[ show edit update destroy ]
 
   def index
-    @tenders = Tender.all
+    status_set = params[:status]
+    if status_set.present?
+      @tenders = Tender.status(status_set)
+    else
+      @tenders = Tender.all      
+    end
+
   end
 
   def show
