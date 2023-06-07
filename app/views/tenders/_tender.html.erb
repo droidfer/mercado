@@ -1,18 +1,15 @@
 <div id="<%= dom_id tender %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= tender.name %>
+  <p class="my-5 text-3xl">
+    <%= "RFQ #{tender.rfq_id}" %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Rfq:</strong>
-    <%= tender.rfq_id %>
+  <p class="mt-5">
+    <strong class="block font-medium mb-1"> <%= tender.name %> </strong>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Status:</strong>
+  
+  <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-sky-600 bg-sky-200 uppercase last:mr-0 mr-1">
     <%= tender.status %>
-  </p>
+  </span>
 
   <% if action_name != "show" %>
     <%= link_to "Show this tender", tender, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
