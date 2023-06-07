@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_155655) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_07_212741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -119,6 +119,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_155655) do
     t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.bigint "tender_id", null: false
+    t.integer "status", default: 0
+    t.datetime "publish_at"
+    t.datetime "finish_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tender_id"], name: "index_tasks_on_tender_id"
+  end
+
   create_table "tenders", force: :cascade do |t|
     t.string "name"
     t.string "rfq_id"
@@ -137,4 +148,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_155655) do
   add_foreign_key "offers", "tenders"
   add_foreign_key "products", "subcategories"
   add_foreign_key "subcategories", "categories"
+  add_foreign_key "tasks", "tenders"
 end
