@@ -22,18 +22,21 @@
 	</div>
 	
 	<div class="flex justify-between items-center mt-10">
-		<h2 class="font-bold text-3xl">Companies</h2>
+		<h2 class="font-bold text-3xl">Client</h2>
 	</div>
 	<div class="flex justify-between items-center">
-		<%= link_to 'All Companies', companies_path()  %>
+		<%= link_to 'Companies', companies_path()  %>
+		<%= link_to 'Employees', employees_path()  %>
+		<%= link_to 'Departments', departments_path()  %>
 	</div>
-	
 	
 	<div class="flex justify-between items-center mt-10">
-		<h2 class="font-bold text-3xl">Employees</h2>
+		<h2 class="font-bold text-3xl">Products</h2>
 	</div>
 	<div class="flex justify-between items-center">
-		<%= link_to 'All Employees', employees_path()  %>
+		<%= link_to 'Categories', categories_path()  %>
+		<%= link_to 'Sub-Categories', subcategories_path()  %>
+		<%= link_to 'Products', products_path()  %>
 	</div>
-
+	
 </div>
