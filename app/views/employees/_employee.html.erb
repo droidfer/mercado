@@ -1,42 +1,41 @@
 <div id="<%= dom_id employee %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+  <p class="mt-5 text-3xl">
     <%= employee.name %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
+  <p class="mt-1">
     <%= employee.title %>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Landline:</strong>
-    <%= employee.landline %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Mobile:</strong>
-    <%= employee.mobile %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Email:</strong>
-    <%= employee.email %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Department:</strong>
+  
+  <p class="mt-1 italic font-light">
     <%= employee.department&.name %>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Company:</strong>
+  
+  <p class="font-bold">
     <%= employee.company&.name %>
   </p>
 
+  <p class="mt-5 flex">
+    <strong class="block font-medium mb-1 mr-2 text-sm">Landline:</strong>
+    <%= employee.landline %>
+  </p>
+
+  <p class="mt-1 flex">
+    <strong class="block font-medium mb-1 mr-2 text-sm">Mobile:</strong>
+    <%= employee.mobile %>
+  </p>
+
+  <p class="mt-1 flex">
+    <strong class="block font-medium mb-1 mr-2 text-sm">Email:</strong>
+    <%= employee.email %>
+  </p>
+
+  
   <% if action_name != "show" %>
-    <%= link_to "Show this employee", employee, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this employee', edit_employee_path(employee), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    <div class="mt-5">
+      <%= link_to "Show this employee", employee, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Edit this employee', edit_employee_path(employee), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <hr class="mt-6">
+    </div>
   <% end %>
 </div>

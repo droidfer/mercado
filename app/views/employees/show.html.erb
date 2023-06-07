@@ -1,15 +1,36 @@
 <div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
-    <%= render @employee %>
-
-    <%= link_to 'Edit this employee', edit_employee_path(@employee), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this employee', employee_path(@employee), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+	<div class="mx-auto">
+		<% if notice.present? %>
+			<p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+		<% end %>
+		
+		<%= render @employee %>
+		
+		<h4 class="text-2xl font-normal leading-normal mt-10 mb-2 text-indigo-800">
+			Related Offers
+		</h4>
+		
+		<div id="offers" class="min-w-full items-center">
+			<% @employee.tenders.each do |tender| %>
+				
+				<div class="mt-2 flex justify-between">
+					<div class="flex">
+						<%= "RFQ #{tender.rfq_id}" %>
+					</div>
+					<div class="flex">
+						<%= link_to "Ver", tender, class: "text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white active:bg-blue-600 font-bold uppercase text-sm px-2 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" %>
+					</div>
+				</div>
+				
+				<hr class="mt-2">
+			<% end %>
+		</div>
+    
+    
+    <div class="flex mt-10 justify-between px-5 py-2 bg-gray-50">
+      <%= button_to 'Editar', edit_employee_path(@employee), method: :get, class: "ml-2 rounded-lg py-1 px-5 bg-green-50 inline-block font-medium" %>
+      <%= button_to 'Borrar', employee_path(@employee), method: :delete, class: "ml-2 rounded-lg py-1 px-5 bg-red-50 inline-block font-medium" %>
+      <%= button_to 'Volver', employees_path, method: :get, class: "ml-2 rounded-lg py-1 px-5 bg-gray-200 inline-block font-medium" %>
     </div>
-    <%= link_to 'Back to employees', employees_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  </div>
+    
 </div>

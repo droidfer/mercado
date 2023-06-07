@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_05_211052) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_07_155655) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -79,6 +79,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_211052) do
     t.index ["department_id"], name: "index_employees_on_department_id"
   end
 
+  create_table "employees_tenders", force: :cascade do |t|
+    t.bigint "employee_id", null: false
+    t.bigint "tender_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_employees_tenders_on_employee_id"
+    t.index ["tender_id"], name: "index_employees_tenders_on_tender_id"
+  end
+
   create_table "offers", force: :cascade do |t|
     t.bigint "tender_id", null: false
     t.integer "status", default: 0
@@ -123,6 +132,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_211052) do
   add_foreign_key "departments", "companies"
   add_foreign_key "employees", "companies"
   add_foreign_key "employees", "departments"
+  add_foreign_key "employees_tenders", "employees"
+  add_foreign_key "employees_tenders", "tenders"
   add_foreign_key "offers", "tenders"
   add_foreign_key "products", "subcategories"
   add_foreign_key "subcategories", "categories"
