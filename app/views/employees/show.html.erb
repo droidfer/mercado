@@ -25,12 +25,12 @@
 				<hr class="mt-2">
 			<% end %>
 		</div>
-    
-    
-    <div class="flex mt-10 justify-between px-5 py-2 bg-gray-50">
-      <%= button_to 'Editar', edit_employee_path(@employee), method: :get, class: "ml-2 rounded-lg py-1 px-5 bg-green-50 inline-block font-medium" %>
-      <%= button_to 'Borrar', employee_path(@employee), method: :delete, class: "ml-2 rounded-lg py-1 px-5 bg-red-50 inline-block font-medium" %>
-      <%= button_to 'Volver', employees_path, method: :get, class: "ml-2 rounded-lg py-1 px-5 bg-gray-200 inline-block font-medium" %>
-    </div>
-    
+		
+		
+		<div class="flex mt-10 justify-between px-5 py-2 bg-gray-50">
+			<%= button_to 'Editar', edit_employee_path(@employee), method: :get, class: "ml-2 rounded-lg py-1 px-5 bg-green-50 inline-block font-medium" %>
+			<%= button_to 'Borrar', employee_path(@employee), method: :delete, class: "ml-2 rounded-lg py-1 px-5 bg-red-50 inline-block font-medium" %>
+			<%= button_to 'Volver', employees_path, method: :get, class: "ml-2 rounded-lg py-1 px-5 bg-gray-200 inline-block font-medium" %>
+		</div>
+	</div>
 </div>
