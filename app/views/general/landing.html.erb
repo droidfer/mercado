@@ -3,41 +3,47 @@
 		<h1 class="font-bold text-4xl">Mercado Fiber Optics</h1>
 	</div>
 	
+	<div class="flex justify-between items-center mt-10">
+		<h2 class="font-bold text-3xl">Tasks</h2>
+	</div>
+	<% Task.all.each do |task| %>
+		<%= render "tasks/task_compact", task: task %>
+	<% end %>
 	
 	<div class="flex justify-between items-center mt-10">
 		<h2 class="font-bold text-3xl">Tenders</h2>
 	</div>
 	<div class="flex justify-between items-center">
 		<%= link_to 'Open Tenders', tenders_path({ status: 1 }) %>
-		<%= link_to 'Won Tenders', tenders_path({ status: 2 })  %>
-		<%= link_to 'Loss Tenders', tenders_path({ status: 3 })  %>
-		<%= link_to 'All Tenders', tenders_path()  %>
+		<%= link_to 'Won Tenders', tenders_path({ status: 2 }) %>
+		<%= link_to 'Loss Tenders', tenders_path({ status: 3 }) %>
+		<%= link_to 'All Tenders', tenders_path() %>
 	</div>
 	
 	<div class="flex justify-between items-center mt-10">
 		<h2 class="font-bold text-3xl">Actions</h2>
 	</div>
 	<div class="flex justify-between items-center">
-		<%= link_to 'Offers', offers_path()  %>
-		<%= link_to 'Tasks', tasks_path()  %>
+		<%= link_to 'Offers', offers_path() %>
+		<%= link_to 'Tasks', tasks_path() %>
 	</div>
 	
 	<div class="flex justify-between items-center mt-10">
 		<h2 class="font-bold text-3xl">Client</h2>
 	</div>
 	<div class="flex justify-between items-center">
-		<%= link_to 'Companies', companies_path()  %>
-		<%= link_to 'Employees', employees_path()  %>
-		<%= link_to 'Departments', departments_path()  %>
+		<%= link_to 'Companies', companies_path() %>
+		<%= link_to 'Employees', employees_path() %>
+		<%= link_to 'Departments', departments_path() %>
 	</div>
 	
 	<div class="flex justify-between items-center mt-10">
 		<h2 class="font-bold text-3xl">Products</h2>
 	</div>
 	<div class="flex justify-between items-center">
-		<%= link_to 'Categories', categories_path()  %>
-		<%= link_to 'Sub-Categories', subcategories_path()  %>
-		<%= link_to 'Products', products_path()  %>
+		<%= link_to 'Categories', categories_path() %>
+		<%= link_to 'Sub-Categories', subcategories_path() %>
+		<%= link_to 'Products', products_path() %>
 	</div>
-	
+
 </div>
