@@ -6,7 +6,7 @@
 	<div class="flex justify-between items-center mt-10">
 		<h2 class="font-bold text-3xl">Tasks</h2>
 	</div>
-	<% Task.all.each do |task| %>
+	<% Task.open.each do |task| %>
 		<%= render "tasks/task_compact", task: task %>
 	<% end %>
 	
