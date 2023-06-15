@@ -1,18 +1,17 @@
 <div id="<%= dom_id department %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+  
+  <p class="mt-5 text-3xl">
     <%= department.name %>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
+  
+  <p class="mt-1">
     <%= department.description %>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Company:</strong>
+  
+  <p class="mt-1 mb-5 italic font-light">
     <%= department.company&.name %>
   </p>
+  
 
   <% if action_name != "show" %>
     <%= link_to "Show this department", department, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
