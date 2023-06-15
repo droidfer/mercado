@@ -1,27 +1,25 @@
 <div id="<%= dom_id task %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+  
+  <p class="mt-5 text-3xl">
     <%= task.name %>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Tender:</strong>
+  
+  <p class="mt-1">
     <%= "RFQ #{task.tender&.rfq_id}" %>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Status:</strong>
+  
+  <span class="text-xs font-semibold inline-block mt-1 py-1 px-2 uppercase rounded text-white bg-<%= task.alertColor %>-600 uppercase last:mr-0 mr-1">
     <%= task.status %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Publish at:</strong>
-    <%= task.publish_at %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Finish at:</strong>
+  </span>
+  
+  <p class="mt-5 flex">
+    <strong class="block font-medium mb-1 mr-2 text-sm">Finish at:</strong>
     <%= task.finish_at %>
+  </p>
+  
+  <p class="mt-1 flex">
+    <strong class="block font-medium mb-1 mr-2 text-sm">Publish at:</strong>
+    <<%= task.publish_at %>
   </p>
 
   <% if action_name != "show" %>
