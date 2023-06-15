@@ -4,7 +4,7 @@ class Offer < ApplicationRecord
 
   enum status: {inactive: 0 , active: 1}
 
-
   scope :active, -> { where(status: :active) }
-  
+
+  scope :status, -> (type) { where("status = ?", type) if type.present? }
 end

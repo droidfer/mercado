@@ -2,7 +2,12 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[ show edit update destroy ]
 
   def index
-    @offers = Offer.all.order(presented_at: :desc)
+    status_set = params[:status]
+    if status_set.present?
+      @offers = Offer.status(status_set).order(presented_at: :desc)
+    else
+      @offers = Offer.all.order(presented_at: :desc)
+    end
   end
 
   def show
