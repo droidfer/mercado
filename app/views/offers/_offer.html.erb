@@ -1,23 +1,23 @@
 <div id="<%= dom_id offer %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Tender:</strong>
+  
+  <p class="mt-5 text-3xl">
     <%= "RFQ #{offer.tender&.rfq_id}" %>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Status:</strong>
-    <%= offer.status %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Price:</strong>
+  
+  <p class="mt-1 flex">
+    <strong class="block font-medium mb-1 mr-2 text-sm">Price:</strong>
     <%= offer.price %>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Presented at:</strong>
+  
+  <p class="mt-1 flex">
+    <strong class="block font-medium mb-1 mr-2 text-sm">Presented at:</strong>
     <%= offer.presented_at %>
   </p>
+  
+  <span class="text-xs font-semibold inline-block mt-1 py-1 px-2 uppercase rounded text-white bg-<%= offer.alertColor %>-600 uppercase last:mr-0 mr-1">
+    <%= offer.status %>
+  </span>
+  
   
   <p class="my-5 flex">
     <strong class="block font-bold mb-1 text-gray-400 underline">Proposal Link</strong>

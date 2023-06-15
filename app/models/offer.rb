@@ -7,4 +7,13 @@ class Offer < ApplicationRecord
   scope :active, -> { where(status: :active) }
 
   scope :status, -> (type) { where("status = ?", type) if type.present? }
+
+  def alertColor
+    case self.status
+    when "active"
+      return "green"
+    else
+      return "red"
+    end
+  end
 end
